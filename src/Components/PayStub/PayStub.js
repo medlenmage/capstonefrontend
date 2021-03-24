@@ -1,9 +1,11 @@
   import React, { useContext, useEffect } from "react"
 import { PayStubContext } from "./PayStubProvider.js"
+import { AuthContext } from '../auth/AuthProvider'
 import './PayStub.css'
 
 export const PayStub = props => {
-    const { getEmployee, getPaystub, payStub, employee } = useContext(PayStubContext)
+    const { getPaystub, payStub } = useContext(PayStubContext)
+    const { employee, getEmployee } = useContext(AuthContext)
 
     useEffect(() => {
         getEmployee()
