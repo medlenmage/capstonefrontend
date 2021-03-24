@@ -7,10 +7,10 @@ import { ApplicationViews } from '../ApplicationViews'
 export const CdlSchool = () => (
     <>
         <Route render={() => {
-          if (localStorage.getItem('lu_token')) {
+          if (localStorage.getItem('employee_user_id')) {
             return <>
                     <Route render={NavBar} />
-                    {/* <Route render={props => <ApplicationViews {...props} />} /> */}
+                    <Route render={props => <ApplicationViews {...props} />} />
                 </>;
           } else {
             return <Redirect to="/login" />

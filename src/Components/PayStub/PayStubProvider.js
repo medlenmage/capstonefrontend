@@ -4,12 +4,12 @@ export const PayStubContext = React.createContext()
 
 export const PayStubProvider = props => {
     const { payStub, setPaystub } = useState([])
-    const { users, setUsers } = useState([])
+    const { employee, setEmployee } = useState({})
 
     const getPaystub = (id) => {
         return fetch(`http://localhost:8000/paystub?employee_id=${id}`, {
             headers:{
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("employee_user_id")}`
             }
         })
             .then(response => response.json())
@@ -20,7 +20,7 @@ export const PayStubProvider = props => {
         return fetch("http://localhost:8000/paystubs", {
             method: "POST",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+                "Authorization": `Token ${localStorage.getItem("employee_user_id")}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(paystub)
@@ -29,35 +29,16 @@ export const PayStubProvider = props => {
             .then(getPaystub)
     }
 
-    const getUsers = () => {
-        return fetch("http://localhost:8000/users", {
+    const getEmployee = () => {
+        const user_id = localStorage.getItem('user_id')
+        return fetch(`http://localhost:8000/employee?user=${user_id}`, {
+            method: "GET",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
-            }
-        })
-            .then(res => res.json())
-            .then(setUsers)
-    }
-
-    const getUserById = (id) => {
-        return fetch(`http://localhost:8000/users/${id}`, {
-            headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
-            }
-        })
-            .then(res => res.json())
-    }
-
-    const getEmployee = (uid) => {
-        return fetch("http://localhost:8000/paystubs", {
-            method: "POST",
-            headers: {
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`,
-                "Content-Type": "application/json"
+                "Authorization": `Token ${localStorage.getItem("employee_user_id")}`,
             },
-            body: JSON.stringify()
         })
-            .then(res => res.json())
+            .then(res => console.error("response", res.json()))
+            .then(setEmployee)
     }
 
     return (
@@ -65,10 +46,8 @@ export const PayStubProvider = props => {
             payStub,
             getPaystub,
             createPaystub,
-            getUsers,
-            getUserById,
             getEmployee,
-            users,
+            employee,
         }}>
             { props.children }
         </PayStubContext.Provider>

@@ -24,8 +24,9 @@ export const Login = (props) => {
       .then((res) => res.json())
       .then((res) => {
         if ('valid' in res && res.valid && 'token' in res) {
-          localStorage.setItem('lu_token', res.token);
-          props.history.push('/');
+          localStorage.setItem('employee_user_id', res.token);
+          localStorage.setItem('user_id', res.id);
+          props.history.push('/paystub');
         } else {
           invalidDialog.current.showModal();
         }
