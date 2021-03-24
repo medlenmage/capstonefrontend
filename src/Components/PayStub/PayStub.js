@@ -1,11 +1,14 @@
-  import React, { useContext, useEffect } from "react"
+  import React, { useContext, useEffect, useState } from "react"
 import { PayStubContext } from "./PayStubProvider.js"
 
 export const PayStub = props => {
-    const { getEmployee, employee } = useContext(PayStubContext)
+    const { getEmployee } = useContext(PayStubContext)
+    const { employee, setEmployee } = useState({})
 
     useEffect(() => {
-        getEmployee()
+        const user_id = localStorage.getItem('user_id')
+        getEmployee(user_id)
+        .then(setEmployee)
     }, [])
 
     // useEffect(() => {
