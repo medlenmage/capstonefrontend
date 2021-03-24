@@ -17,18 +17,17 @@ export const NavBar = (props) => (
                 <Link className="nav-link links listed" to="/Projects">Company Contacts</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link links listed" to="/Projects">Equipment</Link>
+                <Link className="nav-link links listed" to="/Equipment">Equipment</Link>
             </li>
             <li className="nav-item">
                 <Link className="nav-link links listed" to="/Projects">Personal Information</Link>
             </li>
-            <li>
                 {
-                    (localStorage.getItem("lu_token") !== null) ?
+                    (localStorage.getItem("employee_user_id") !== null) ?
                         <li className="nav-item">
                             <button className="nav-link fakeLink"
                                 onClick={() => {
-                                    localStorage.removeItem("lu_token")
+                                    localStorage.removeItem("employee_user_id")
                                     props.history.push({ pathname: "/" })
                                 }}
                             >Logout</button>
@@ -42,7 +41,6 @@ export const NavBar = (props) => (
                             </li>
                         </>
                 } 
-            </li>
         </ul>
         </div>
     </nav>
