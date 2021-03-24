@@ -1,28 +1,40 @@
-  import React, { useContext, useEffect, useState } from "react"
+  import React, { useContext, useEffect, useRef } from "react"
 import { PayStubContext } from "./PayStubProvider.js"
+import './PayStub.css'
 
 export const PayStub = props => {
-    const { getEmployee } = useContext(PayStubContext)
-    const { employee, setEmployee } = useState({})
+    const { getEmployee, getPaystub, payStub, employee } = useContext(PayStubContext)
 
     useEffect(() => {
-        const user_id = localStorage.getItem('user_id')
-        getEmployee(user_id)
-        .then(setEmployee)
+        getEmployee()
     }, [])
 
-    // useEffect(() => {
-    //     getPaystub(employee.id)
-    // }, [])
+    useEffect(() => {
+        getPaystub(employee.id)
+    }, employee.id)
 
     return (
+        <div className="paystubContainer">
+            {   payStub.map(paystubs => {
+                    return <div className="card mt-1 paystubCard">
+                        <div className="card-body">
+                            <h6 className="card-title game">Pay To: {paystubs.employee_id.user.first_name} {paystubs.employee_id.user.last_name}</h6>
+                            <p className="game">Pay Period: {paystubs.pay_period}</p>
+                            <p className="deposit-date">Deposit Date: {paystubs.deposit_date}</p>
+                            <p className="salary">Amount: {paystubs.salary}</p>
+                            <p className="account-name">Account: {paystubs.deposit_account.account_name}</p>
+                        </div>
+                    </div>
+            }) 
+                
+            }
+        </div>
 
-        <div><p>hello</p></div>
         // <article className="paystubs">
         //     {
         //         payStub.map(paystubs => {
         //             return <section key={`paystub--${paystubs.id}`} className="paystub">
-        //                 <div className="game__title">Paid to: {paystubs.employee.user.first_name} {paystubs.employee.user.last_name}</div>
+        //                 <div className="game__title">Paid to: {paystubs.employee_id.user.first_name} {paystubs.employee_id.user.last_name}</div>
         //                 <div className="game__players">Pay Period: {paystubs.pay_period}</div>
         //                 <div className="game__skillLevel">Deposit Date: {paystubs.deposit_date}</div>
         //                 <div className="game__edit">Account: {paystubs.deposit_account.account_name}</div>

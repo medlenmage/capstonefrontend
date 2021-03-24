@@ -8,7 +8,6 @@ export const ApplicationViews = () => {
     return <>
         <main style={{
             margin: "5rem 2rem",
-            backgroundColor: "lightgoldenrodyellow"
         }}>
             <PayStubProvider>
                 <Route exact path="/paystub" render={ props => <PayStub {...props}/>} />

@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 export const PayStubContext = React.createContext()
 
 export const PayStubProvider = props => {
-    const { payStub, setPaystub } = useState([])
-    const { employee, setEmployee } = useState({})
+    const [ payStub, setPaystub ] = useState([])
+    const [ employee, setEmployee ] = useState({})
 
     const getPaystub = (id) => {
-        return fetch(`http://localhost:8000/paystub?employee_id=${id}`, {
+        return fetch(`http://localhost:8000/paystubs?employee_id=${id}`, {
             headers:{
                 "Authorization": `Token ${localStorage.getItem("employee_user_id")}`
             }
