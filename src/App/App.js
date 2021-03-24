@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { Login } from '../Components/auth/Login';
 import { NavBar } from '../Components/NavBar/NavBar';
 import { ApplicationViews } from '../ApplicationViews'
+import { Register } from '../Components/auth/Register'
 
 export const CdlSchool = () => (
     <>
@@ -18,6 +19,6 @@ export const CdlSchool = () => (
         }} />
 
         <Route path="/login" render={Login} />
-        {/* <Route path="/register" render={Register} /> */}
+        <Route path="/register" render={Register} />
     </>
 );
