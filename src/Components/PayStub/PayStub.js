@@ -1,7 +1,7 @@
   import React, { useContext, useEffect } from "react"
 import { PayStubContext } from "./PayStubProvider.js"
 import { AuthContext } from '../auth/AuthProvider'
-import './PayStub.css'
+import './PayStub.scss'
 
 export const PayStub = props => {
     const { getPaystub, payStub } = useContext(PayStubContext)
@@ -16,20 +16,23 @@ export const PayStub = props => {
     }, employee.id)
 
     return (
-        <div className="paystubContainer">
+        <div className="paystubContainer mb-3">
+            <h2 className="paystubHeader text-center">Paystubs</h2>
+            <div className="card-columns mt-5">
             {   payStub.map(paystubs => {
-                    return <div className="card mt-1 paystubCard">
+                    return <div className="card m-auto paystubCard">
                         <div className="card-body">
-                            <h6 className="card-title game">Pay To: {paystubs.employee_id.user.first_name} {paystubs.employee_id.user.last_name}</h6>
-                            <p className="game">Pay Period: {paystubs.pay_period}</p>
-                            <p className="deposit-date">Deposit Date: {paystubs.deposit_date}</p>
-                            <p className="salary">Amount: {paystubs.salary}</p>
-                            <p className="account-name">Account: {paystubs.deposit_account.account_name}</p>
+                            <p className="paidTo"><b>Pay To:</b> {paystubs.employee_id.user.first_name} {paystubs.employee_id.user.last_name}</p>
+                            <p className="payPeriod"><b>Pay Period:</b> {paystubs.pay_period}</p>
+                            <p className="deposit-date"><b>Deposit Date:</b> {paystubs.deposit_date}</p>
+                            <p className="salary"><b>Amount:</b> {paystubs.salary}</p>
+                            <p className="account-name"><b>Account:</b> {paystubs.deposit_account.account_name}</p>
                         </div>
                     </div>
             }) 
                 
             }
+            </div>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React , { useState, useEffect, useContext } from 'react'
 import { EquipmentContext } from './EquipmentProvider'
+import './Equipment.scss'
 
 export const NewEquipment = props => {
     const { createEquipment } = useContext(EquipmentContext)
@@ -13,7 +14,6 @@ export const NewEquipment = props => {
 
     const handleAvailableChange = (e) => {
         e.preventDefault()
-        // setIsAvailable(e.target.value)
         if (e.target.value === "true") {
             setIsAvailable(true)
         } else {
@@ -23,7 +23,7 @@ export const NewEquipment = props => {
 
     return (
         <div className="text-center">
-            <h3 className="formHeader">New Equipment</h3>
+            <h2 className="formHeader mb-4">New Equipment</h2>
             <form className="col-6 offset-3">
                 <div className="form-group">
                     <label htmlFor="equipmentType">Equipment Type</label>
@@ -37,7 +37,7 @@ export const NewEquipment = props => {
                     onChange={handleTypeChange}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-3">
                     <label htmlFor="is_available">Current Available</label>
                     <select
                     className="form-control"
@@ -49,7 +49,7 @@ export const NewEquipment = props => {
                         <option value={false}>Unavailable</option>
                     </select>
                 </div>
-                <button className="btn button btn-primary" type="submit" onClick={
+                <button className="btn button btn-secondary" type="submit" onClick={
                     evt => {
                         evt.preventDefault()
                         createEquipment({
