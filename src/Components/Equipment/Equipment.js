@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { EquipmentContext } from './EquipmentProvider'
 
 export const Equipment = props => {
@@ -14,6 +15,7 @@ export const Equipment = props => {
 
     return (
         <div className="equipmentContainer">
+            <Link className="btn btn-primary" to="/newEquipment">Add Equipment</Link>
             {
                 equipments.map(equipment => {
                     return <div className="card mt-1 paystubCard ">
