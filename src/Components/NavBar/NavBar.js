@@ -22,15 +22,13 @@ export const NavBar = (props) => (
             <li className="nav-item">
                 <Link className="nav-link links listed" to="/Equipment">Equipment</Link>
             </li>
-            <li className="nav-item">
-                <Link className="nav-link links listed" to="/Projects">Personal Information</Link>
-            </li>
                 {
                     (localStorage.getItem("employee_user_id") !== null) ?
                         <li className="nav-item">
                             <button className="nav-link fakeLink links listed"
                                 onClick={() => {
                                     localStorage.removeItem("employee_user_id")
+                                    localStorage.removeItem("user_id")
                                     props.history.push({ pathname: "/" })
                                 }}
                             >Logout</button>
