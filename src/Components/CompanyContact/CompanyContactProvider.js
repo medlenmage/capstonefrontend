@@ -55,6 +55,16 @@ export const CompanyContactProvider = props => {
             .then(getContacts)
     }
 
+    const removeContact = contactId => {
+        return fetch(`http://localhost:8000/companycontacts/${contactId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("employee_user_id")}`
+            },
+        })
+            .then(getContacts)
+    }
+
     return (
         <CompanyContactContext.Provider value={{
             companyContacts,
@@ -62,7 +72,8 @@ export const CompanyContactProvider = props => {
             createContact,
             updateContact,
             singleContact,
-            getSingleContact
+            getSingleContact,
+            removeContact
         }}>
             {props.children}
         </CompanyContactContext.Provider>

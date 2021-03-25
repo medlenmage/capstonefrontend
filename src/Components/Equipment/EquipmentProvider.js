@@ -55,6 +55,16 @@ export const EquipmentProvider = props => {
             .then(getEquipment)
     }
 
+    const deleteEquipment = equipmentId => {
+        return fetch(`http://localhost:8000/equipments/${equipmentId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("employee_user_id")}`
+            },
+        })
+            .then(getEquipment)
+    }
+
     return (
         <EquipmentContext.Provider value={{
             equipments,
@@ -62,7 +72,8 @@ export const EquipmentProvider = props => {
             singleEquipment,
             getSingleEquipment,
             createEquipment,
-            updateEquipment
+            updateEquipment,
+            deleteEquipment
         }}>
             {props.children}
         </EquipmentContext.Provider>

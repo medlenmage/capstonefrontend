@@ -4,7 +4,7 @@ import { CompanyContactContext } from './CompanyContactProvider'
 import './CompanyContact.scss'
 
 export const CompanyContact = props => {
-    const { companyContacts, getContacts } = useContext(CompanyContactContext)
+    const { companyContacts, getContacts, removeContact } = useContext(CompanyContactContext)
 
     useEffect(() => {
         getContacts()
@@ -23,6 +23,10 @@ export const CompanyContact = props => {
                             <p className="contactNum"><b>Contact Phone Number:</b> {contact.contact_phone_number}</p>
                             <p className="contactEmail"><b>Contact Email:</b> {contact.contact_email}</p>
                             <Link className="btn btn-danger" to={`/companycontact/${parseInt(contact.id)}`}>Edit Contact</Link>
+                            <button className="btn btn-danger ml-4" onClick={e => {
+                                e.preventDefault();
+                                removeContact(contact.id)
+                            }}>Remove Contact</button>
                         </div>
                     </div>
             }) 

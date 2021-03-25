@@ -93,8 +93,8 @@ export const ContactForm = props => {
                       })
                         .then(() => props.history.push("/companycontact"))
                     }}
-                    className="btn btn-primary">Edit</button>
-                  : <button className="btn button btn-primary" type="submit" onClick={
+                    className="btn btn-danger">Edit</button>
+                  : <button className="btn button btn-danger" type="submit" onClick={
                     evt => {
                       evt.preventDefault()
                       createContact({
