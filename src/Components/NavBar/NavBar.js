@@ -8,7 +8,7 @@ export const NavBar = (props) => (
         <div className="link-list-container">
             <ul className="navbar-nav link-list m-0">
                 <li className="nav-item">
-                    <Link className="navbar-brand links listed" to="/home">Arsenal</Link>
+                    <Link className="navbar-brand links listed" to="/paystub">Arsenal</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link links listed" to="/paystub">Paystub</Link>

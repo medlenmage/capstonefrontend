@@ -3,31 +3,29 @@ import { Link } from 'react-router-dom'
 import { EquipmentContext } from './EquipmentProvider'
 
 export const Equipment = props => {
-    const { equipment, equipments, getEquipment, getSingleEquipment, updateEquipment } = useContext(EquipmentContext)
+    const { equipments, getEquipment, updateEquipment } = useContext(EquipmentContext)
 
     useEffect(() => {
         getEquipment()
     }, [])
 
-    // useEffect(() => {
-    //     getSingleEquipment(id)
-    // }, [])
-
     return (
         <div className="equipmentContainer">
-            <Link className="btn btn-primary" to="/newEquipment">Add Equipment</Link>
+            <h2 className="paystubHeader text-center">Equipment</h2>
+            <Link className="btn btn-secondary contactButton" to="/newEquipment">Add Equipment</Link>
+            <div className="card-columns mt-5">
             {
                 equipments.map(equipment => {
-                    return <div className="card mt-1 paystubCard ">
-                        <div className="card-body m-auto">
-                            <h6 className="card-title game">Equipment Type: {equipment.equipment_type}</h6>
+                    return <div className="card mt-1 paystubCard">
+                        <div className="card-body">
+                            <p className="equipType"><b>Equipment Type:</b> {equipment.equipment_type}</p>
                             
                             {
                                 equipment.is_available === true
                                 ?
                                 <div className="buttonContainer"> 
-                                    <p className="equipmentAvailable">Currently Available: Yes</p>
-                                        <button className="btn btn-warning updateAvailabilty" type="submit" onClick={evt => {
+                                    <p className="equipmentAvailable"><b>Currently Available:</b> Yes</p>
+                                        <button className="btn btn-danger updateAvailabilty" type="submit" onClick={evt => {
                                             evt.preventDefault()
                                             updateEquipment({
                                                 id: equipment.id,
@@ -38,8 +36,8 @@ export const Equipment = props => {
                                         }}>Update Availabilty</button>
                                     </div>
                                 : <div className="buttonContainer"> 
-                                <p className="equipmentAvailable">Currently Available: No</p>
-                                    <button className="btn btn-warning updateAvailabilty" type="submit" onClick={evt => {
+                                <p className="equipmentAvailable"><b>Currently Available:</b> No</p>
+                                    <button className="btn btn-danger updateAvailabilty" type="submit" onClick={evt => {
                                         evt.preventDefault()
                                         updateEquipment({
                                             id: equipment.id,
@@ -56,6 +54,7 @@ export const Equipment = props => {
                     </div>
                 })
             }
+            </div>
         </div>
     )
 }

@@ -22,7 +22,7 @@ export const PayStub = props => {
             {   payStub.map(paystubs => {
                     return <div className="card m-auto paystubCard">
                         <div className="card-body">
-                            <p className="card-title"><b>Pay To:</b> {paystubs.employee_id.user.first_name} {paystubs.employee_id.user.last_name}</p>
+                            <p className="paidTo"><b>Pay To:</b> {paystubs.employee_id.user.first_name} {paystubs.employee_id.user.last_name}</p>
                             <p className="payPeriod"><b>Pay Period:</b> {paystubs.pay_period}</p>
                             <p className="deposit-date"><b>Deposit Date:</b> {paystubs.deposit_date}</p>
                             <p className="salary"><b>Amount:</b> {paystubs.salary}</p>

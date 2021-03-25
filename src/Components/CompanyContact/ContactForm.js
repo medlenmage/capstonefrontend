@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CompanyContactContext } from './CompanyContactProvider'
 
 export const ContactForm = props => {
-    const { companyContact, createContact, updateContact, getSingleContact, singleContact } = useContext(CompanyContactContext)
+    const { createContact, updateContact, getSingleContact, singleContact } = useContext(CompanyContactContext)
     let intialContact = {}
     if ("contactId" in props.match.params) {
         intialContact = singleContact
@@ -13,14 +13,6 @@ export const ContactForm = props => {
         if ("contactId" in props.match.params) {
             getSingleContact(props.match.params.contactId)
             .then(setCurrentContact(singleContact))
-            // .then(singleContact => {
-            //     setCurrentContact({
-            //         company_name: singleContact.company_name,
-            //         contact_name: singleContact.contact_name,
-            //         contact_phone_number: singleContact.contact_phone_number,
-            //         contact_email: singleContact.contact_email
-            //     })
-            // })
         }
     }, [])
 
