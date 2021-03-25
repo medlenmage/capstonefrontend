@@ -12,6 +12,7 @@ export const CompanyContact = props => {
     return (
         <div className="contactContainer">
             <Link className="btn btn-primary" to="/newContact">Add Contact</Link>
+            <div className="card-columns mt-5">
             {   companyContacts.map(contact => {
                     return <div className="card mt-1 paystubCard">
                         <div className="card-body">
@@ -25,6 +26,7 @@ export const CompanyContact = props => {
             }) 
                 
             }
+            </div>
         </div>
     )
 }

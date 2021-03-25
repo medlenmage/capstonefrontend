@@ -3,6 +3,7 @@
 .links {
   font-family: 'Crimson Text', serif;
   font-weight: 500;
+  color: whitesmoke !important;
 }
 
 .link-list-container {
@@ -17,4 +18,8 @@
 .listed {
   margin-left: 100px;
   margin-right: 100px;
+}
+
+nav {
+  background-color: darkred;
 }
