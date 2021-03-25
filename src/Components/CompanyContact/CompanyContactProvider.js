@@ -4,6 +4,7 @@ export const CompanyContactContext = React.createContext()
 
 export const CompanyContactProvider = props => {
     const [ companyContacts, setCompanyContacts ] = useState([])
+    const [ singleContact, setSingleContact ] = useState({})
 
     const getContacts = () => {
         return fetch("http://localhost:8000/companycontacts", {
@@ -14,6 +15,17 @@ export const CompanyContactProvider = props => {
         })
         .then(res => res.json())
         .then(setCompanyContacts)
+    }
+
+    const getSingleContact = (id) => {
+        return fetch(`http://localhost:8000/companycontacts/${id}`, {
+            method: "GET",
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("employee_user_id")}`
+            },
+        })
+        .then(res => res.json())
+        .then(setSingleContact)
     }
 
     const createContact = contact => {
@@ -31,8 +43,8 @@ export const CompanyContactProvider = props => {
     }
 
     const updateContact = contact => {
-        return fetch(`http://localhost:8000/equipments/${contact.id}`, {
-            method: "POST",
+        return fetch(`http://localhost:8000/companycontacts/${contact.id}`, {
+            method: "PUT",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("employee_user_id")}`,
                 "Content-Type": "application/json",
@@ -48,7 +60,9 @@ export const CompanyContactProvider = props => {
             companyContacts,
             getContacts,
             createContact,
-            updateContact
+            updateContact,
+            singleContact,
+            getSingleContact
         }}>
             {props.children}
         </CompanyContactContext.Provider>

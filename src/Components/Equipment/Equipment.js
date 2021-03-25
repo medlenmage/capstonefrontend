@@ -16,8 +16,8 @@ export const Equipment = props => {
         <div className="equipmentContainer">
             {
                 equipments.map(equipment => {
-                    return <div className="card mt-1 paystubCard">
-                        <div className="card-body">
+                    return <div className="card mt-1 paystubCard ">
+                        <div className="card-body m-auto">
                             <h6 className="card-title game">Equipment Type: {equipment.equipment_type}</h6>
                             
                             {

@@ -9,6 +9,7 @@ import { NewEquipment } from './Components/Equipment/NewEquipment'
 import { Benefits } from './Components/Benefits/Benefits'
 import { CompanyContactProvider } from './Components/CompanyContact/CompanyContactProvider'
 import { CompanyContact } from './Components/CompanyContact/CompanyContact'
+import { ContactForm } from './Components/CompanyContact/ContactForm'
 
 export const ApplicationViews = () => {
     return <>
@@ -24,6 +25,8 @@ export const ApplicationViews = () => {
                             <Route exact path="/newEquipment" render={ props => <NewEquipment {...props}/>} />
                             <Route exact path="/benefits" render={ props => <Benefits {...props}/>} />
                             <Route exact path="/companycontact" render={ props => <CompanyContact {...props}/>} />
+                            <Route exact path="/companycontact/:contactId(\d+)" render={ props => <ContactForm {...props}/>} />
+                            <Route exact path="/newcontact" render={ props => <ContactForm {...props}/>} />
                         </CompanyContactProvider>
                     </EquipmentProvider>
                 </PayStubProvider>

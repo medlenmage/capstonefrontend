@@ -4,9 +4,12 @@ import './NavBar.scss';
 
 export const NavBar = (props) => (
     <nav className="navbar navbar-expand-lg navbar-light">
-        <Link className="navbar-brand links" to="/home">Arsenal</Link>
+        
         <div className="link-list-container">
-        <ul className="navbar-nav link-list">
+        <ul className="navbar-nav link-list m-0">
+            <li className="nav-item">
+                <Link className="navbar-brand links listed" to="/home">Arsenal</Link>
+            </li>
             <li className="nav-item">
                 <Link className="nav-link links listed" to="/paystub">Paystub</Link>
             </li>
@@ -25,7 +28,7 @@ export const NavBar = (props) => (
                 {
                     (localStorage.getItem("employee_user_id") !== null) ?
                         <li className="nav-item">
-                            <button className="nav-link fakeLink"
+                            <button className="nav-link fakeLink links listed"
                                 onClick={() => {
                                     localStorage.removeItem("employee_user_id")
                                     props.history.push({ pathname: "/" })
