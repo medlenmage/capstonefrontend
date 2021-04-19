@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# CDL School Employee Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+---
+This is the front end of a capstone project encapsulating all technologies learned and used while at NSS(Nashville Software School)
 
-## Available Scripts
+This is a single page web application utilizing React for the front end and Python-Django Rest for the backend. This app is an employee dashboard for employees at a CDL Academy/school. It is used for them to manage and view things such as paystubs, benefits, days off as well as contact information for companies that sponser the program. It uses Django User Auth for authentication, registering, and logging in. Once a user is logged in the app takes their id from local storage to retrieve their data for paystubs and benefits. This app also keeps track of equipment used by the school and contacts for recruiters for companies that sponser/support the program.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
+---
+* App contains a landing page that appears when not signed in or a link to register an employee
+* There is a functioning navbar at the top when signed in
+* When signed the user is taken to their paystub page where they may view past and current paystubs
+* The app is styled using sass and follows a matching color scheme
+* App uses Django Auth for registering, authenticating, and logging in to the app
+* Can view company contacts that sponser or support the company
+* Can view equipment that the school utilizes and update whether the equipment is currently available for use.
+* Can view current benefits such as health, dental, and life insurace. As well as vacation and sick days.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to Run
+---
+Download backend, seed the database, and run server. Link to backend here instructions to run backend provided in README https://github.com/medlenmage/capstonebackend/tree/main/capstoneapi
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Fork this repo
+* Clone the repo down
+* Install dependencies `npm install`
+* then run npm `npm start`
 
-### `npm test`
+## Contributors
+---
+* Joshua Medlen
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
+---
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Coming Soon**
