@@ -35,9 +35,9 @@ export const Equipment = props => {
                                             .then(() => props.history.push("/equipment"))
                                         }}>Update Availabilty</button>
                                         <button className="btn btn-danger ml-4" onClick={e => {
-                                e.preventDefault();
-                                deleteEquipment(equipment.id)
-                            }}>Delete Equipment</button>
+                                            e.preventDefault();
+                                            deleteEquipment(equipment.id)
+                                        }}>Delete Equipment</button>
                                     </div>
                                 : <div className="buttonContainer"> 
                                 <p className="equipmentAvailable"><b>Currently Available:</b> No</p>
@@ -51,9 +51,9 @@ export const Equipment = props => {
                                         .then(() => props.history.push("/equipment"))
                                     }}>Update Availabilty</button>
                                     <button className="btn btn-danger ml-4" onClick={e => {
-                                e.preventDefault();
-                                deleteEquipment(equipment.id)
-                            }}>Delete Equipment</button>
+                                        e.preventDefault();
+                                        deleteEquipment(equipment.id)
+                                    }}>Delete Equipment</button>
                                 </div>
                             }
 
