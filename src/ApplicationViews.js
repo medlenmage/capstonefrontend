@@ -31,7 +31,6 @@ export const ApplicationViews = () => {
                                 <Route exact path="/companycontact/:contactId(\d+)" render={ props => <ContactForm {...props}/>} />
                                 <Route exact path="/newcontact" render={ props => <ContactForm {...props}/>} />
                                 <Route exact path="/classes" render={ props => <Grouping {...props}/>} />
-
                             </GroupingProvider>
                         </CompanyContactProvider>
                     </EquipmentProvider>

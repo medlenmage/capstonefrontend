@@ -22,6 +22,9 @@ export const NavBar = (props) => (
                 <li className="nav-item">
                     <Link className="nav-link links listed" to="/Equipment">Equipment</Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link links listed" to="/classes">Classes</Link>
+                </li>
                     {
                         (localStorage.getItem("employee_user_id") !== null) ?
                             <li className="nav-item">
