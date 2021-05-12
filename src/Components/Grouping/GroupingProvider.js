@@ -30,7 +30,7 @@ export const GroupingProvider = props => {
     }
 
     const getSingleGrouping = (id) => {
-        return fetch(`http://localhost:8000/groupings/${id}`, {
+        return fetch(`http://localhost:8000/groupings?instructor=${id}`, {
             method: "GET",
             headers:{
                 "Authorization": `Token ${localStorage.getItem("employee_user_id")}`
