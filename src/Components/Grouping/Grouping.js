@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { GroupingContext } from "./GroupingProvider.js"
+import { Link } from 'react-router-dom';
 import './Grouping.scss'
 
 export const Grouping = props => {
@@ -21,6 +22,7 @@ export const Grouping = props => {
                             <p className="payPeriod"><b>Instructor:</b> {groupings.instructor.user.first_name} {groupings.instructor.user.last_name}</p>
                             <p className="deposit-date"><b>Start Date:</b> {groupings.start_date}</p>
                             <p className="salary"><b>End Date:</b> {groupings.end_date}</p>
+                            <Link className="btn btn-secondary" id={`${groupings.id}`} to={`/classes/${groupings.id}`}>Students</Link>
                         </div>
                     </div>
             }) 

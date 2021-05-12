@@ -12,6 +12,7 @@ import { CompanyContact } from './Components/CompanyContact/CompanyContact'
 import { ContactForm } from './Components/CompanyContact/ContactForm'
 import { GroupingProvider } from './Components/Grouping/GroupingProvider'
 import { Grouping } from './Components/Grouping/Grouping'
+import { SingleGrouping } from './Components/Grouping/SingleGrouping'
 
 export const ApplicationViews = () => {
     return <>
@@ -31,6 +32,7 @@ export const ApplicationViews = () => {
                                 <Route exact path="/companycontact/:contactId(\d+)" render={ props => <ContactForm {...props}/>} />
                                 <Route exact path="/newcontact" render={ props => <ContactForm {...props}/>} />
                                 <Route exact path="/classes" render={ props => <Grouping {...props}/>} />
+                                <Route exact path="/classes/:instructorId(\d+)" render={ props => <SingleGrouping {...props}/>} />
                             </GroupingProvider>
                         </CompanyContactProvider>
                     </EquipmentProvider>
